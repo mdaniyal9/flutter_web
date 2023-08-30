@@ -52,7 +52,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                   ? Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: MediaQuery.sizeOf(context).height / 1.5,
+                        height: MediaQuery.sizeOf(context).height / 2,
                         width: double.infinity,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24),
@@ -68,20 +68,24 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                               'Material Design',
                               style: TextStyle(
                                   fontSize:
-                                      MediaQuery.sizeOf(context).height / 8),
+                                      MediaQuery.sizeOf(context).height / 9.6),
                             ),
                             Text(
                               textAlign: TextAlign.center,
                               'Material 3 is the latest version of Google’s open-source design system. Design and \n build beautiful, usable products with Material 3.',
                               style: TextStyle(
                                   fontSize:
-                                      MediaQuery.sizeOf(context).height / 40),
+                                      MediaQuery.sizeOf(context).height / 44),
                             ),
                             SizedBox(
-                              height: MediaQuery.sizeOf(context).height / 20,
+                              height: MediaQuery.sizeOf(context).height / 32,
                             ),
                             ElevatedButton(
                               onPressed: () {},
+                              style: ButtonStyle(backgroundColor:
+                                  MaterialStateColor.resolveWith((states) {
+                                return const Color.fromRGBO(9, 87, 208, 1);
+                              })),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20.0, horizontal: 12),
@@ -94,10 +98,6 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                               36),
                                 ),
                               ),
-                              style: ButtonStyle(backgroundColor:
-                                  MaterialStateColor.resolveWith((states) {
-                                return Color.fromRGBO(9, 87, 208, 1);
-                              })),
                             )
                           ],
                         ),
