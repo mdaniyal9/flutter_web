@@ -12,9 +12,12 @@ class HomeViewModel extends BaseViewModel {
   final _bottomSheetService = locator<BottomSheetService>();
   bool isExtended = true;
   List<HomeMenu> menu = [
-    HomeMenu('Favourite', Icons.favorite_border, Icons.favorite),
-    HomeMenu('Bookmarks', Icons.bookmark_border, Icons.book),
-    HomeMenu('Starred', Icons.star_border, Icons.star)
+    HomeMenu('Home', Icons.home_outlined, Icons.home_filled),
+    HomeMenu('Get Started', Icons.apps, Icons.apps_rounded),
+    HomeMenu('Develop', Icons.code, Icons.code_rounded),
+    HomeMenu('Foundations', Icons.book_outlined, Icons.book),
+    HomeMenu('Styles', Icons.palette_outlined, Icons.palette_rounded),
+    HomeMenu('Components', Icons.add_circle_outline, Icons.add_circle),
   ];
   int selectedIndex = 0;
 
