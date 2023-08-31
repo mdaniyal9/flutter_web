@@ -1,3 +1,4 @@
+import 'package:filledstacked_academy/ui/views/home/home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -9,6 +10,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
+      // key: viewModel.scaffoldKey,
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -39,21 +41,51 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
             child: SingleChildScrollView(
               child: viewModel.selectedIndex == 0
                   ? homeTab(context)
-                  : onMakeTable(context,
-                      rows: viewModel.selectedIndex == 0
-                          ? 8
-                          : viewModel.selectedIndex == 1
-                              ? 6
-                              : 20,
-                      columns: viewModel.selectedIndex == 0
-                          ? 4
-                          : viewModel.selectedIndex == 1
-                              ? 6
-                              : 3),
+                  : viewModel.selectedIndex == 1
+                      ? SizedBox(
+                          height: MediaQuery.sizeOf(context).height,
+                          child: Scaffold(
+                              key: viewModel.scaffoldKey,
+                              body: Center(
+                                  child: InkWell(
+                                onTap: () {},
+                                onHover: (value) {
+                                  debugPrint('>?????????????????????? $value');
+                                  if (value) {
+                                    viewModel.scaffoldKey.currentState!
+                                        .openDrawer();
+                                  }
+                                },
+                                child: const Text('Drawer Testing'),
+                              )),
+                              drawer: NavigationDrawer(children: [
+                                ...viewModel.destinations.map(
+                                  (HomeMenu destination) {
+                                    return NavigationDrawerDestination(
+                                      label: Text(destination.label),
+                                      icon: Icon(destination.icon),
+                                      selectedIcon:
+                                          Icon(destination.selectedIcon),
+                                    );
+                                  },
+                                ),
+                              ])))
+                      : onMakeTable(context,
+                          rows: viewModel.selectedIndex == 0
+                              ? 8
+                              : viewModel.selectedIndex == 1
+                                  ? 6
+                                  : 20,
+                          columns: viewModel.selectedIndex == 0
+                              ? 4
+                              : viewModel.selectedIndex == 1
+                                  ? 6
+                                  : 3),
             ),
           )
         ],
       ),
+      // drawer: NavigationDrawer(children: [Text('data'), Text('data')]),
     );
   }
 

@@ -19,6 +19,14 @@ class HomeViewModel extends BaseViewModel {
     HomeMenu('Styles', Icons.palette_outlined, Icons.palette_rounded),
     HomeMenu('Components', Icons.add_circle_outline, Icons.add_circle),
   ];
+
+  List<HomeMenu> destinations = <HomeMenu>[
+    HomeMenu('page 0', Icons.widgets_outlined, Icons.widgets),
+    HomeMenu('page 1', Icons.format_paint_outlined, Icons.format_paint),
+    HomeMenu('page 2', Icons.text_snippet_outlined, Icons.text_snippet),
+    HomeMenu('page 3', Icons.invert_colors_on_outlined, Icons.opacity),
+  ];
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   int selectedIndex = 0;
 
   String get counterLabel => 'Counter is: $_counter';
