@@ -74,72 +74,66 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 56),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width / 20),
-            child: SizedBox(
-              height: MediaQuery.sizeOf(context).height / 2.8,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 12.0),
-                      child: InkWell(
-                        onTap: () {
+          horizontalCardList(context)
+        ],
+      ),
+    );
+  }
 
-                        },
-                        hoverColor: Colors.grey,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              // color: const Color(0xFFf3f6fc),
-                              borderRadius: BorderRadius.circular(12)),
-                          width: MediaQuery.sizeOf(context).width / 3.75,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: MediaQuery.sizeOf(context).height / 4.4,
-                                decoration: BoxDecoration(
-                                    image: const DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: NetworkImage(
-                                            "https://lh3.googleusercontent.com/51moDkmVWptBFXRReuACKocS_fsOoYtfT-C78onEUKeRr7ky4l_ZsuZMK2AnE7-MPRbLzcKTAIFmNyyN7ACo0-eygmXaGeR0ItYtRcYNE8-_L8RHqkA=w960")),
-                                    borderRadius: BorderRadius.circular(12)),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.sizeOf(context).width / 40,
-                                    vertical:
-                                        MediaQuery.sizeOf(context).height / 70),
-                                child: const Text(
-                                  'Material Design at Google I/O',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.sizeOf(context).width / 40,
-                                ),
-                                child: const Text(
-                                  'See the full list of Material talks and tutorials launching at I/O 2023',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              )
-                            ],
-                          ),
+  Widget horizontalCardList(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.sizeOf(context).width / 20, vertical: 20),
+      child: SizedBox(
+        height: MediaQuery.sizeOf(context).height / 2.8,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 12.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFf3f6fc),
+                      borderRadius: BorderRadius.circular(12)),
+                  width: MediaQuery.sizeOf(context).width / 3.75,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: MediaQuery.sizeOf(context).height / 4.4,
+                        decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    "https://lh3.googleusercontent.com/51moDkmVWptBFXRReuACKocS_fsOoYtfT-C78onEUKeRr7ky4l_ZsuZMK2AnE7-MPRbLzcKTAIFmNyyN7ACo0-eygmXaGeR0ItYtRcYNE8-_L8RHqkA=w960")),
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.sizeOf(context).width / 40,
+                            vertical: MediaQuery.sizeOf(context).height / 70),
+                        child: const Text(
+                          'Material Design at Google I/O',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
-                    );
-                  }),
-            ),
-          )
-        ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.sizeOf(context).width / 40,
+                        ),
+                        child: const Text(
+                          'See the full list of Material talks and tutorials launching at I/O 2023',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }),
       ),
     );
   }
