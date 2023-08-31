@@ -58,7 +58,16 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                 },
                                 child: const Text('Drawer Testing'),
                               )),
-                              drawer: NavigationDrawer(children: [
+                              drawer: NavigationDrawer(
+        selectedIndex: viewModel.selectedIndex,
+                                children: [
+                                Padding(
+            padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
+            child: Text(
+              'Header',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
                                 ...viewModel.destinations.map(
                                   (HomeMenu destination) {
                                     return NavigationDrawerDestination(
