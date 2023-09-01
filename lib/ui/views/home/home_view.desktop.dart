@@ -45,29 +45,29 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                       ? SizedBox(
                           height: MediaQuery.sizeOf(context).height,
                           child: Scaffold(
-                              key: viewModel.scaffoldKey,
-                              body: Center(
-                                  child: InkWell(
-                                onTap: () {},
-                                onHover: (value) {
-                                  debugPrint('>?????????????????????? $value');
-                                  if (value) {
-                                    viewModel.scaffoldKey.currentState!
-                                        .openDrawer();
-                                  }
-                                },
-                                child: const Text('Drawer Testing'),
-                              )),
-                              drawer: NavigationDrawer(
-        selectedIndex: viewModel.selectedIndex,
-                                children: [
+                            key: viewModel.scaffoldKey,
+                            body: Center(
+                                child: InkWell(
+                              onTap: () {},
+                              onHover: (value) {
+                                debugPrint('>?????????????????????? $value');
+                                viewModel.scaffoldKey.currentState!
+                                    .openDrawer();
+                              },
+                              child: const Text('Drawer Testing'),
+                            )),
+                            drawer: NavigationDrawer(
+                              selectedIndex: viewModel.selectedIndex,
+                              children: [
                                 Padding(
-            padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-            child: Text(
-              'Header',
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(28, 16, 16, 10),
+                                  child: Text(
+                                    'Header',
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                ),
                                 ...viewModel.destinations.map(
                                   (HomeMenu destination) {
                                     return NavigationDrawerDestination(
@@ -78,7 +78,10 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                     );
                                   },
                                 ),
-                              ])))
+                              ],
+                            ),
+                          ),
+                        )
                       : onMakeTable(context,
                           rows: viewModel.selectedIndex == 0
                               ? 8
@@ -137,7 +140,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                 child: Container(
                   decoration: BoxDecoration(
                       color: const Color(0xFFf3f6fc),
-                      borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(20)),
                   width: MediaQuery.sizeOf(context).width / 3.75,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
